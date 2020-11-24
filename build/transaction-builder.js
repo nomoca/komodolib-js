@@ -186,14 +186,13 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
       return 'Spend value is too large or unconfirmed UTXO(S). Max available amount is ' + Number((_maxSpendBalance * 0.00000001).toFixed(8));
     }
 
+    const targetValue = value > _maxSpendBalance ? _maxSpendBalance : value;
+
     var targets = [{
       address: outputAddress,
-      value: value > _maxSpendBalance ? _maxSpendBalance : value
+      value: targetValue
     }];
 
-    console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value)
-    targets[0].value = targets[0].value + fee;
-    targets = targets;
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets[0]', targets[0], 'targets', targets)
 
     // _maxSpendBalance - fee 13106 0
