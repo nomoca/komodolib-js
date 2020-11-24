@@ -194,7 +194,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     targets[0].value = targets[0].value + fee;
 
     // If value > max spendable value: subtract fee from max.
-    if(targets[0].value > _maxSpendBalance) {
+    if((targets[0].value + fee) > _maxSpendBalance) {
       targets[0].value = _maxSpendBalance - fee;
     }
 
