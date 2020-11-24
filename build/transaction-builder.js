@@ -206,14 +206,17 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
 
     if (! outputs) {
       targets[0].value = targets[0].value - fee;
-      console.log('! outputs || ', 'targets[0].value', targets[0].value, 'fee', fee)
+
+      if(targets[0].value) {
+        alert('The fee is higher than the amount you want to send. Please top up your balance to be able to send coins.')
+        return;
+      }
 
       var secondRun = coinselect(utxoListFormatted, targets, 0);
       inputs = secondRun.inputs;
       outputs = secondRun.outputs;
       fee = fee || secondRun.fee;
 
-      console.log('secondRun', secondRun, 'input2', inputs, 'outputs2', outputs);
     }
 
     var _change = 0;
@@ -225,8 +228,6 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     if (!btcFee && _change === 0) {
       outputs[0].value = outputs[0].value - fee;
     }
-
-    console.log('firstRun', firstRun, 'inputs', inputs, 'outputs', outputs);
 
     if (btcFee) {
       value = outputs[0].value;
