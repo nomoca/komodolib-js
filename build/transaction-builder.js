@@ -200,6 +200,8 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     var inputs = firstRun.inputs;
     var outputs = firstRun.outputs;
 
+    console.log('input1', inputs, 'outputs1', outputs);
+
     if (btcFee) {
       fee = firstRun.fee;
     }
@@ -211,6 +213,8 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
       inputs = secondRun.inputs;
       outputs = secondRun.outputs;
       fee = fee || secondRun.fee;
+
+      console.log('secondRun', secondRun, 'input2', inputs, 'outputs2', outputs);
     }
 
     var _change = 0;
