@@ -193,7 +193,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
 
     targets[0].value = targets[0].value + fee;
 
-    console.log('targets', targets, 'utxoListFormatted', utxoListFormatted)
+    console.log('targets', targets, 'utxoListFormatted', utxoListFormatted, '_maxSpendBalance', _maxSpendBalance, 'value', value)
 
     // default coin selection algo blackjack with fallback to accumulative
     // make a first run, calc approx tx fee
