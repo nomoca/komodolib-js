@@ -192,7 +192,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     }];
 
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value)
-    targets[0].value = targets[0].value + fee;
+    targets[0]['value'] = targets[0].value + fee;
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets[0]', targets[0], 'targets', targets)
 
     console.log('targets', targets, 'utxoListFormatted', utxoListFormatted, '_maxSpendBalance', _maxSpendBalance, 'value', value)
