@@ -207,6 +207,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     if (! outputs) {
       targets[0].value = targets[0].value - fee;
 
+      console.log('targets[0].value', targets[0].value, 'fee', fee)
       if(targets[0].value < 0) {
         alert('The fee is higher than the amount you want to send. Please top up your balance to be able to send coins.')
         return {
