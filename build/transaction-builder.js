@@ -223,6 +223,8 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
       outputs[0].value = outputs[0].value - fee;
     }
 
+    console.log('firstRun', firstRun, 'inputs', inputs, 'outputs', outputs);
+
     if (btcFee) {
       value = outputs[0].value;
     } else if (_change >= 0) {
