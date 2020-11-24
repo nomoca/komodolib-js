@@ -209,14 +209,15 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
 
       if(targets[0].value) {
         alert('The fee is higher than the amount you want to send. Please top up your balance to be able to send coins.')
-        return;
+        return {
+          fee: fee
+        }
       }
 
       var secondRun = coinselect(utxoListFormatted, targets, 0);
       inputs = secondRun.inputs;
       outputs = secondRun.outputs;
       fee = fee || secondRun.fee;
-
     }
 
     var _change = 0;
