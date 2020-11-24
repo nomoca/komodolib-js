@@ -193,15 +193,6 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
       value: targetValue
     }];
 
-    console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets[0]', targets[0], 'targets', targets)
-    return;
-
-    // _maxSpendBalance - fee 13106 0
-    // targets[0].value 13106
-    // targets[0] {address: "176oMejukdojGgsE8Tft8oTvts1YtBF1Wz", value: 13106} targets [{…}]
-
-    console.log('targets', targets, 'utxoListFormatted', utxoListFormatted, '_maxSpendBalance', _maxSpendBalance, 'value', value)
-
     // default coin selection algo blackjack with fallback to accumulative
     // make a first run, calc approx tx fee
     // if ins and outs are empty reduce max spend by txfee
@@ -209,14 +200,13 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     var inputs = firstRun.inputs;
     var outputs = firstRun.outputs;
 
-    console.log('input1', inputs, 'outputs1', outputs);
-
     if (btcFee) {
       fee = firstRun.fee;
     }
 
-    if (!outputs) {
+    if (! outputs) {
       targets[0].value = targets[0].value - fee;
+      console.log('! outputs || ', 'targets[0].value', targets[0].value, 'fee', fee)
 
       var secondRun = coinselect(utxoListFormatted, targets, 0);
       inputs = secondRun.inputs;
