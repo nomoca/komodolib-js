@@ -192,8 +192,13 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     }];
 
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value)
-    targets[0]['value'] = targets[0].value + fee;
+    targets[0].value = targets[0].value + fee;
+    targets = targets;
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets[0]', targets[0], 'targets', targets)
+
+    // _maxSpendBalance - fee 13106 0
+    // targets[0].value 13106
+    // targets[0] {address: "176oMejukdojGgsE8Tft8oTvts1YtBF1Wz", value: 13106} targets [{…}]
 
     console.log('targets', targets, 'utxoListFormatted', utxoListFormatted, '_maxSpendBalance', _maxSpendBalance, 'value', value)
 
