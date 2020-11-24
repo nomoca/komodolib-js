@@ -193,12 +193,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
 
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value)
     targets[0].value = targets[0].value + fee;
-
-    // If value > max spendable value: subtract fee from max.
-    if(targets[0].value > _maxSpendBalance) {
-      targets[0].value = _maxSpendBalance - fee;
-    }
-    // _maxSpendBalance - fee 13106 0
+    console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets', targets)
 
     console.log('targets', targets, 'utxoListFormatted', utxoListFormatted, '_maxSpendBalance', _maxSpendBalance, 'value', value)
 
