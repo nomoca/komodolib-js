@@ -194,6 +194,7 @@ var data = function data(network, value, fee, outputAddress, changeAddress, utxo
     }];
 
     console.log('_maxSpendBalance - fee', _maxSpendBalance, fee, 'targets[0].value', targets[0].value, 'targets[0]', targets[0], 'targets', targets)
+    return;
 
     // _maxSpendBalance - fee 13106 0
     // targets[0].value 13106
